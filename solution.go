@@ -1,12 +1,30 @@
 package square
 
-// Define custom int type to hold sides number and update CalcSquare signature by replacing #yourTypeNameHere#
 
-// Define constants to represent 0, 3 and 4 sides.  Test uses mnemos: SidesTriangle(==3), SidesSquare(==4), SidesCircle(==0)
-// it's like:
-// CalcSquare(10.0, SidesTriangle)
-// CalcSquare(10.0, SidesSquare)
-// CalcSquare(10.0, SidesCircle)
+import (
+	"math"
+)
 
-func CalcSquare(sideLen float64, sidesNum #yourTypeNameHere#) float64 {
+type sidesNumber int
+
+const (
+	SidesCircle   = 0
+	SidesTriangle = 3
+	SidesSquare   = 4
+)
+
+func CalcSquare(sideLen float64, sidesNum sidesNumber) float64 {
+
+	var result float64 = 0.0
+
+	if sidesNum == SidesCircle {
+		result = math.Pi * sideLen * sideLen
+	} else if sidesNum == SidesTriangle {
+		result = sideLen * math.Sqrt(sideLen) / 4
+	} else if sidesNum == SidesSquare {
+		result = sideLen * sideLen
+	}
+
+	return result
 }
+
