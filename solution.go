@@ -18,11 +18,12 @@ func CalcSquare(sideLen float64, sidesNum sidesNumber) float64 {
 	var result float64 = 0.0
 
 	if sidesNum == SidesCircle {
-		result = math.Pi * sideLen * sideLen
+		result = math.Pi * math.Pow(sideLen, 2)
 	} else if sidesNum == SidesTriangle {
-		result = sideLen * math.Sqrt(sideLen) / 4
+		result = sideLen * sideLen * math.Sqrt(3) / 4
 	} else if sidesNum == SidesSquare {
-		result = sideLen * sideLen
+		result = math.Pow(sideLen, 2)
+
 	}
 
 	return result
